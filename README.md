@@ -4,7 +4,7 @@
 
 - This repository contains a topic-wise curated list of Machine Learning and Deep Learning tutorials, articles and other resources. Other awesome lists can be found in this [list](https://github.com/sindresorhus/awesome).
 
-- If you want to contribute to this list, please read [Contributing Guidelines](https://github.com/ujjwalkarn/Machine-Learning-Tutorials/blob/master/contributing.md).
+- If you want to contribute to this list, please read [Contributing Guidelines](https://github.com/himanshuraiml/Artificial-General-Intelligence-AGI/blob/main/contributing.md).
 
 
 
