@@ -107,7 +107,7 @@
 
 - [OpenAi Language model -GPT3](https://en.wikipedia.org/wiki/GPT-3/)
 
--[OpenAi WIKI ](https://en.wikipedia.org/wiki/OpenAI)
+- [OpenAi WIKI ](https://en.wikipedia.org/wiki/OpenAI)
 
 <a name="ai" />
 
