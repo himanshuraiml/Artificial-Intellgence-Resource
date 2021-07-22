@@ -10,7 +10,7 @@
 
 ## Contents
 - [Introduction](#general)
-- [Interview Resources](#interview)
+- [Useful Articles ](#articles)
 - [Artificial Intelligence](#ai)
 - [Genetic Algorithms](#ga)
 - [Statistics](#stat)
@@ -101,9 +101,9 @@
 
 - [Twitter's Most Shared #machineLearning Content From The Past 7 Days](http://theherdlocker.com/tweet/popularity/machinelearning)
 
-<a name="interview" />
+<a name="articles" />
 
-## Interview Resources
+## Useful Articles 
 
 - [41 Essential Machine Learning Interview Questions (with answers)](https://www.springboard.com/blog/machine-learning-interview-questions/)
 
