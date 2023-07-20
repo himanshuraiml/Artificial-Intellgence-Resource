@@ -1,0 +1,99 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPQc7kXfzYWq3/PmLpky2xG",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/himanshuraiml/Artificial-General-Intelligence-AGI/blob/main/GAN%20(CNN%2BLSTM)\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "BTmRBakGi11s"
+      },
+      "outputs": [],
+      "source": [
+        "import cv2\n",
+        "import numpy as np\n",
+        "import pywt\n",
+        "from scipy.fftpack import dct\n",
+        "from keras.preprocessing import sequence\n",
+        "from keras.utils import np_utils\n",
+        "from keras.models import Sequential\n",
+        "from keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, LSTM, TimeDistributed, Flatten"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def extract_feature_vectors(image):\n",
+        "    # Apply the Discrete Wavelet Transform (DWT)\n",
+        "    coeffs = pywt.dwt2(image, 'haar')\n",
+        "    cA, (cH, cV, cD) = coeffs\n",
+        "\n",
+        "    # Apply the Discrete Cosine Transform (DCT)\n",
+        "    dct_coeffs = dct(image, norm='ortho')\n",
+        "\n",
+        "    # Calculate the histogram\n",
+        "    histogram = np.histogram(image.flatten(), bins=256, range=[0, 256])[0]\n",
+        "\n",
+        "    # Concatenate the feature vectors\n",
+        "    feature_vector = np.concatenate((cA.flatten(), cH.flatten(), cV.flatten(), cD.flatten(), dct_coeffs.flatten(), histogram))\n",
+        "\n",
+        "    return feature_vector"
+      ],
+      "metadata": {
+        "id": "7P9f4S13jMz4"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "    image = cv2.imread('/content/sample_data/cat.jpg', cv2.IMREAD_GRAYSCALE)  # Load image in grayscale\n",
+        "    feature_vector = extract_feature_vectors(image)\n",
+        "    print(feature_vector )"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OYbr0kP9jfPW",
+        "outputId": "6f023ade-23d1-4296-f91f-30a4b65ba565"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[67.5 64.  68.5 ...  2.   4.   2. ]\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
